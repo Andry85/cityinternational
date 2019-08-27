@@ -1,0 +1,10 @@
+#global-wrapper,
+#body-wrapper {
+	position: relative;
+	z-index: 0;
+}
+
+#body-wrapper {
+	line-height: $line-height-default;
+	min-height: 80vh;
+}

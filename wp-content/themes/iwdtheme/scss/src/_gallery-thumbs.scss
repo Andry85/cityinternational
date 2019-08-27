@@ -1,0 +1,41 @@
+.iw-gallery-thumbs {
+	position: relative;
+	line-height: normal;
+
+	ul, li {
+		position: relative;
+		list-style: none;
+		padding: 0;
+		border: none;
+		max-width: 100%;
+	}
+
+	ul {
+		display: block;
+		margin: 1em auto;
+	}
+
+	li {
+		display: inline-block;
+		vertical-align: top;
+		margin: 4px 8px 4px 0px;
+		padding: 0;
+	}
+
+	a {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		line-height: 0;
+		text-decoration: none;
+		border: none;
+	}
+
+	img {
+		position: relative;
+		max-width: 100%;
+		width: auto;
+		height: auto;
+		border: none;
+	}
+}

@@ -1,0 +1,269 @@
+.content-block.banner {
+	padding: 0;
+}
+
+.banner-extra-buttons {
+	position: absolute;
+	bottom: 70px;
+	left: 0;
+	width: 100%;
+	font-family: $font-special;
+
+	@include display-flex(flex);
+	@include justify-content(center);
+	@include align-items(stretch);
+	@include flex-direction(row);
+
+	> a {
+		display: block;
+		text-transform: uppercase;
+		color: $white;
+		font-size: 12px;
+		background-color: transparent;
+		z-index: 10;
+		text-align: center;
+		padding: 20px 65px;
+		border: 2px solid $white;
+		text-decoration: none;
+		font-weight: 700;
+
+		@include transition-duration($quick);
+		@include transition-property(background-color, color);
+
+		&:hover {
+			background-color: $white;
+			color: $black;
+		}
+
+		&:nth-child(2) {
+			border-left: 0;
+		}
+
+		@media screen and (max-width: $md-lower) {
+			padding: 10px 30px;
+		}
+	}
+}
+
+.iw-banner-dark-bgd {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(#111, 0.4);
+}
+
+.iw-banner {
+	display: block;
+	position: relative;
+	left: 0;
+	top: 0;
+	z-index: 0;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	cursor: default;
+
+	background-color: transparent;
+	&.no-parallax { background-color: #111; }
+
+	width: 100%;
+	
+	// Normal height (from small screens upwards)
+	height: 400px;
+	min-height: 500px;
+	
+	@media screen and (min-width: $md-lower) {
+		height: 500px;
+	}
+	
+	@media screen and (min-width: $lg-lower) {
+		height: 560px;
+		min-height: 80vh;
+	}
+
+	@media screen and (min-width: $lg-lower) and (max-height: 400px) {
+		min-height: 400px;
+	}
+
+	// Short height (from small screens upwards)
+	&.iw-banner-short {
+		height: 400px;
+		min-height: 500px;
+	}
+
+	// Full screen (from small screens upwards)
+	&.iw-banner-full-screen {
+		height: calc(100vh - #{$header-sm-height});
+		
+		@media screen and (min-width: $md-lower) {
+			height: calc(100vh - #{$header-sm-height});
+		}
+		
+		@media screen and (min-width: $lg-lower) {
+			height: 100vh;
+		}
+	}
+
+	&, * {
+		@include no-select();
+	}
+}
+
+@media screen and (min-width: $lg-lower) {
+	body.header-opaque .iw-banner.iw-banner-full-screen {
+		height: calc(100vh - #{$header-lg-height-default});
+	}
+}
+
+.iw-banner-overlay {
+	display: block;
+	z-index: 200;
+	padding: 0;
+	background: center no-repeat;
+	background-size: cover;
+
+	&, .iw-banner-overlay-inner {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		width: 100%;
+		height: 100%;
+		margin: 0;
+	}
+	
+	.iw-banner-overlay-inner {
+		text-align: center;
+		color: $white;
+		padding: 0 15px;
+
+		@include display-flex(flex);
+		@include align-items(center);
+		@include justify-content(flex-start);
+
+		// Medium/large viewports
+		@media screen and (min-width: $md-lower) {
+			padding-left: 30px;
+			padding-right: 30px;
+		}
+
+		> div {
+			position: relative;
+			width: $content-block-width-narrow;
+			max-width: 100%;
+			margin: 0 auto;
+			padding: 0;
+		}
+	}
+}
+
+.iw-banner-item {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 50;
+	overflow: hidden;
+	padding: $pad;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	max-width: 100%;
+	background: transparent center center no-repeat fixed;
+	background-size: cover;
+	text-decoration: none;
+
+	&.image-pos-top {
+		background-position: center 0;
+	}
+
+	&.image-pos-bottom {
+		background-position: center bottom;
+	}
+
+	&:first-child {
+		z-index: 100;
+	}
+
+	@media screen and (max-width: 1200px) {
+		background-attachment: scroll !important;
+	}
+}
+
+.iw-banner-text {
+	position: relative;
+	z-index: 10;
+	max-width: 100%;
+}
+
+.iw-banner-ctrls {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 200;
+	padding: 15px;
+	margin: 0;
+	text-align: center;
+}
+
+.iw-banner-ctrl {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	width: 16px;
+	height: 16px;
+	background: transparent center center no-repeat inline-image('banner/bannerdot_off.svg');
+	cursor: pointer;
+
+	&.iw-banner-ctrl-on {
+		background-image: inline-image('banner/bannerdot_on.svg');
+	}
+}
+
+.iw-banner-video {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: 0;
+	width: 100%;
+	height: 100%;
+
+	&, video {
+		padding: 0;
+		margin: 0;
+		border: none;
+		overflow: hidden;
+	}
+
+	video {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background: center no-repeat;
+		object-fit: cover;
+		object-position: center;
+
+		@media screen and (max-width: $md-upper) {
+			top: 0 !important; // stop JS from 'correcting' position on sm/md
+		}
+	}
+}
+
+/*@media screen and (min-width: $lg-lower) {
+	body.header-transparent {
+		.iw-banner,
+		.iw-banner-overlay-inner {
+			padding-top: $header-lg-height-default / 3;
+		}
+	}
+}*/

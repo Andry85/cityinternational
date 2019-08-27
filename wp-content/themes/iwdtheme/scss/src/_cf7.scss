@@ -1,0 +1,79 @@
+/**
+ *
+ * Some boilerplate style for cf7 forms.
+ *
+ * To be tailored for individual sites.
+ *
+ */
+
+.wpcf7-response-output {
+
+	position: relative;
+	padding: 8px!important;
+	margin: 15px auto!important;
+	width: 100%;
+	height: auto;
+	background: #fff;
+	color: #111;
+	text-align: left;
+
+	&.wpcf7-validation-errors,
+	&.wpcf7-mail-sent-ng,
+	&.wpcf7-spam-blocked,
+	&.wpcf7-not-valid-tip {
+		background-color: #FFD8DE;
+		border: 1px solid #FFAAB7;
+	}
+
+	&.wpcf7-mail-sent-ok {
+		background-color: #CEE4E5;
+		border: 1px solid #B3E2E5;
+	}
+
+}
+
+.wpcf7-form {
+
+	text-align: left;
+
+	> div {
+		position: relative;
+		padding: 8px 0;
+	}
+
+	input[type="text"],
+	input[type="email"],
+	input[type="number"],
+	input[type="tel"],
+	input[type="date"],
+	textarea {
+		padding: 5px;
+		border: 1px solid #ccc;
+		line-height: 1em;
+	}
+
+	textarea {
+		max-width: 100%;
+	}
+
+	label {
+		font-weight: normal;
+
+	}
+	span.astx {
+		color: #d22;
+	}
+
+	[data-hidden] {
+		display: none;
+	}
+
+	option.null-option {
+		opacity: .8;
+		font-style: italic;
+	}
+
+	.placeholder-substitute {
+		display: none;
+	}
+}

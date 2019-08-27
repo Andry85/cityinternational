@@ -1,0 +1,23 @@
+.illicit-nav {
+	ul, li {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+	a {
+		padding: 0;
+	}
+}
+
+#header {
+	span.header-button-search {
+		position: relative;
+		display: inline-block;
+		vertical-align: middle;
+		width: 20px;
+		height: 20px;
+		background-size: contain;
+		background-image: inline-image("search.svg");
+		cursor: pointer;
+	}
+}

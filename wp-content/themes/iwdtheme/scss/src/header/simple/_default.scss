@@ -1,0 +1,31 @@
+// Default header
+
+#header {
+	position: relative;
+	left: 0;
+	top: 0;
+	z-index: 80;
+	width: 100%;
+	overflow: visible;
+	clear: both;
+	color: $header-color;
+	text-transform: uppercase;
+	letter-spacing: 1.5px;
+}
+
+#header-logo {
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+	padding: 15px;
+	height: 100%;
+	max-width: 100%;
+	text-decoration: none;
+	background: 0 center no-repeat;
+	background-size: contain;
+	background-origin: content-box;
+
+	@if variable-exists(header-logo-inline-image) {
+		background-image: inline-image($header-logo-inline-image);
+	}
+}

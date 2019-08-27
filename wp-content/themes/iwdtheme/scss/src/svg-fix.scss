@@ -1,0 +1,7 @@
+// This SCSS should be loaded for <= IE8; also should be dynamically
+// loaded where lack of SVG support has been detected.
+
+// Basic imports
+@import "compass/css3";
+@import "variables";
+@import "mixins";

@@ -1,0 +1,193 @@
+.product-carousel {
+
+	// Vars
+	// ----------------------------------------------------------------
+	$scrollbar-thickness-guess: 24px;
+	$height-outer: 250px;
+	$height-middle: $height-outer + $scrollbar-thickness-guess;
+	$height-inner: $height-outer;
+	$item-width: 250px; // inc padding
+	$item-width-sm: 180px;
+	$nav-btn-width: 40px;
+	$nav-btn-height: 50px;
+	$space-between-items: 30px;
+	$breakpoint-lg:  1100px;
+	$breakpoint-sm:  800px;
+
+
+	// Basic
+	// ----------------------------------------------------------------
+	display: block;
+	position: relative;
+	width: 100%;
+	z-index: 0;
+	padding: 0;
+	margin: 0 auto;
+	clear: both;
+	overflow: hidden;
+	text-align: left;
+
+	&, * {
+		@include no-select();
+		-webkit-tap-highlight-color: rgba(0,0,0,0);
+	}
+
+
+	// All containers
+	// ----------------------------------------------------------------
+	.product-carousel-outer,
+	.product-carousel-middle,
+	.product-carousel-inner {
+		display: block;
+		position: relative;
+		left: 0;
+		top: 0;
+		z-index: 0;
+		padding: 0;
+		margin: 0;
+		text-align: left;
+	}
+
+
+	// Outer (scrollbar-concealing) container
+	// ----------------------------------------------------------------
+	.product-carousel-outer {
+		width: 100%;
+		height: $height-outer;
+		overflow: hidden; // hide scrollbar of middle container
+	}
+
+
+	// Middle (scrolling) container (child of .product-carousel-outer)
+	// ----------------------------------------------------------------
+
+	.product-carousel-middle {
+		width: 100%;
+		height: $height-middle;
+		overflow-x: scroll; // we want a horiz scroll bar
+		overflow-y: hidden; // we do not want a vert scroll bar
+		-webkit-overflow-scrolling: touch; // iOS momentum scrolling
+	}
+
+
+	// Inner (content) container (child of .product-carousel-middle)
+	// ----------------------------------------------------------------
+
+	.product-carousel-inner {
+		width: auto;
+		height: $height-inner;
+		white-space: nowrap;
+		&, &.product-thumbs {
+			overflow: visible;
+			max-width: none;
+		}
+	}
+
+
+	// Gallery items (children of .product-carousel-inner)
+	// ----------------------------------------------------------------
+	.product-carousel-item {
+		display: inline-block;
+		vertical-align: top;
+		position: relative;
+		left: 0;
+		top: 0;
+		z-index: 0;
+		margin: 0 $space-between-items 0 0;
+		padding: 0;
+		width: $item-width;
+		height: $height-outer;
+		overflow: hidden;
+		white-space: normal;
+		text-align: center;
+
+		img {
+			max-width: 100%;
+		}
+	}
+
+	.product-carousel-item:last-child {
+		padding-right: 0;
+	}
+
+
+	// Prev/next btns (children of .product-carousel-outer)
+	// ----------------------------------------------------------------
+
+	.product-carousel-prev,
+	.product-carousel-next {
+		display: block;
+		position: absolute;
+		top: 50%;
+		z-index: 20;
+		margin: -($nav-btn-height / 2) 0 0 0;
+		width: $nav-btn-width;
+		height: $nav-btn-height;
+		background: transparent center no-repeat;
+		cursor: pointer;
+		opacity: 0.9;
+	}
+
+	.product-carousel-prev {
+		left: -$nav-btn-width;
+		background-image: inline-image('wc/product-carousel/arrow_left.svg');
+	}
+
+	.product-carousel-next {
+		right: -$nav-btn-width;
+		background-image: inline-image('wc/product-carousel/arrow_right.svg');
+	}
+
+
+	// Mobile stack
+	// ----------------------------------------------------------------
+
+	@media screen and (min-width: ($breakpoint-sm + 1)) and (max-width: $breakpoint-lg) {
+		.product-carousel-item {
+			width: $item-width-sm;
+			margin-right: 30px;
+
+			h3 {
+				font-size: 16px;
+			}
+		}
+
+		.product-carousel-prev,
+		.product-carousel-next {
+			background-color: $blue;
+			background-color: rgba($blue, 0.8);
+		}
+
+		.product-carousel-prev {
+			left: 0;
+		}
+
+		.product-carousel-next {
+			right: 0;
+		}
+	}
+
+	@media screen and (max-width: $breakpoint-sm) {
+		.product-carousel-prev,
+		.product-carousel-next {
+			display: none;
+		}
+
+		.product-carousel-item {
+			display: block;
+			margin: 30px auto;
+			padding: 0;
+
+			&.mobile-hide {
+				display: none;
+			}
+		}
+
+		.product-carousel-outer,
+		.product-carousel-middle,
+		.product-carousel-inner {
+			height: auto;
+			overflow: hidden;
+		}
+	}
+}

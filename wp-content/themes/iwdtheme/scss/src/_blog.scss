@@ -1,0 +1,43 @@
+.content-block.monthly-archive {
+	margin-bottom: 40px;
+
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	li {
+		list-style: none;
+		padding: 2px 0;
+		margin: 0;
+	}
+
+	[data-action] {
+		cursor: pointer;
+	}
+}
+
+.content-block.blog {
+	header,
+	.blog-page-content {
+		text-align: center;
+	}
+
+	> .content-block-inner.post-excerpt {
+		padding: 0 0 20px;
+		margin: 20px auto;
+
+		h2 {
+			margin-top: 0;
+		}
+	}
+}
+
+.content-block.blog-single {
+	article > section {
+		padding-bottom: $mega-pad;
+		margin-bottom: $mega-pad;
+		border-bottom: 1px solid $lt-grey;
+	}
+}

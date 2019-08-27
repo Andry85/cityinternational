@@ -1,0 +1,20 @@
+a {
+	@include link-style($black, $grey); // @fixme
+	@include transition-duration($quick);
+	@include transition-property(color);
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+a.offset-anchor {
+	position: absolute;
+	top: -90px;
+	z-index: -100;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	opacity: 0;
+	text-decoration: none;
+}

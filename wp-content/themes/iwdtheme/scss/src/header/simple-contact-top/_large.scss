@@ -1,0 +1,26 @@
+@media screen and (min-width: $lg-lower) {
+
+	// Layout
+	// ==============================================================
+
+	body {
+		padding-top: $header-lg-height-default + $header-top-height;
+	}
+
+	#header {
+		position: fixed;
+		height: $header-lg-height-default + $header-top-height;
+	}
+
+	#header-main {
+		height: $header-lg-height-default;
+	}
+
+	#header.scrolled-down {
+		height: $header-lg-height-shrunk + $header-top-height;
+
+		#header-main {
+			height: $header-lg-height-shrunk;
+		}
+	}
+}

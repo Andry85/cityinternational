@@ -1,0 +1,82 @@
+.content-block.areas-of-law {
+	padding: 80px 30px;
+	padding-bottom: 15px;
+
+	h2 {
+		margin: 0;
+		line-height: 1.4em;
+	}
+
+	h4 {
+		color: $lt-grey;
+		font-weight: 700;
+	}
+
+	p {
+		color: $grey;
+	}
+
+	> .content-block-inner {
+
+		> div {
+			margin-top: 30px;
+		}
+	}
+
+	@media screen and (min-width: $lg-lower) {
+
+		> .content-block-inner {
+
+			> div {
+				@include display-flex(flex);
+				@include align-items(flex-start);
+				margin-top: 70px;
+
+				.title {
+					width: 280px;
+				}
+
+				.description {
+					width: calc(100% - 300px);
+					padding-left: 50px;
+					padding-top: 10px;
+
+					p:first-child {
+						margin-top: 0;
+					}
+				}
+			}
+
+			@media screen and (min-width: $lg-lower) {
+				// Animation
+				&.content-anim {
+					overflow: hidden;
+
+					> * {
+						position: relative;
+						left: 0;
+						top: 80px;
+						opacity: 0;
+
+						@include transition-property(top, opacity);
+						@include transition-duration(1s);
+
+						&:nth-child(2) { top: 120px; @include transition-duration(1s); }
+						&:nth-child(3) { top: 160px; @include transition-duration(1s); }
+						&:nth-child(4) { top: 180px; @include transition-duration(1s); }
+						&:nth-child(5) { top: 200px; @include transition-duration(1s); }
+						&:nth-child(6) { top: 220px; @include transition-duration(1s); }
+					}
+
+					&.revealed {
+						> * {
+							top: 0;
+							opacity: 1;
+						}
+					}
+				}
+			}
+		}
+
+	}
+}

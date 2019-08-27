@@ -1,0 +1,29 @@
+.content-block.latest-news-strip {
+	text-align: left;
+	padding: 40px 15px;
+
+	.latest-news-strip-post {
+		@include display-flex(flex);
+		@include align-items(center);
+		@include justify-content(space-between);
+	}
+
+	> .content-block-inner {
+		padding: 0;
+	}
+
+	.latest-news-strip-post {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		z-index: 0;
+		width: 100%;
+		margin: 0 auto;
+		padding: 0;
+		overflow: hidden;
+		opacity: 0;
+
+		@include no-select();
+	}
+}

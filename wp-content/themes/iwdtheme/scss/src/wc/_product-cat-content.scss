@@ -1,0 +1,10 @@
+.content-block.product-cat-content {
+	padding: $mega-pad $pad;
+	text-align: center;
+
+	header,
+	.product-cat-content-link-wrap {
+		position: relative;
+		padding: $pad 0;
+	}
+}

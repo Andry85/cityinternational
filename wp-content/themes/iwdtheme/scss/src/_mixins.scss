@@ -1,0 +1,175 @@
+// Adds pretty quotes around element
+@mixin enquote() {
+	&:before {
+		content: "\201C";
+	}
+	&:after {
+		content: "\201D";
+	}
+}
+
+@mixin input-placeholder {
+    &.placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &:-ms-input-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; }
+}
+
+@mixin no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@mixin btn() {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	max-width: 100%;
+
+	padding: 8px 12px;
+	margin: 8px 0;
+	border: 1px solid $white;
+	border-radius: 0;
+
+	text-align: center;
+	font-family: $font-body;
+	font-weight: normal;
+	line-height: normal;
+	text-decoration: none;
+	text-shadow: none;
+	
+	cursor: pointer;
+
+	background-color: $blue;
+	&, &:link, &:visited, &:hover, &:active {
+		color: $white;
+	}
+	&:hover {
+		background-color: lighten($blue, 10%);
+	}
+
+	@include transition-duration($quick);
+	@include transition-property(background-color, color, border-color);
+	@include no-select();
+}
+
+@mixin ghost-btn() {
+	@include btn();
+
+	background-color: transparent;
+	border: 2px solid $white;
+	color: $white;
+
+	&:hover {
+		background-color: $white;
+		color: $blue;
+	}
+}
+
+// Adds basic <a> styles to all the relevant pseudo-elements
+@mixin link-style($off-color, $on-color, $underline-on-hover: 0) {
+	text-decoration: none;
+
+	&, &:link, &:visited {
+		color: $off-color;
+	}
+	
+	&:hover, &:active {
+		color: $on-color;
+		@if $underline-on-hover == 0 {
+			text-decoration: none;
+		}
+		@else {
+			text-decoration: underline;
+		}
+	}
+}
+
+// For inline (dataURI) background images which switch on mouse hover.
+// Params are just {string} paths relative to SCSS images dir.
+@mixin inline-rollover($off-file, $on-file: '') {
+	background-image: inline-image($off-file);
+	
+	@if $on-file != '' {
+		&:hover {
+			background-image: inline-image($on-file);
+		}
+	}
+}
+
+@mixin inline-background($file) {
+	background-image: inline-image($file);
+}
+
+// Include this inside the container of the list items for social icon links.
+@mixin social-links($width: 48px, $height: 48px, $x-margin: 8px) {
+	&, ul {
+		display: block;
+		position: relative;
+		padding: 0;
+		margin: 0;
+	}
+
+	li {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	li, a {
+		position: relative;
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	a {
+		background: center no-repeat;
+		text-decoration: none;
+		width: $width;
+		height: $height;
+		margin: 0 $x-margin;
+	}
+}
+
+@mixin grayscale() {
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+	filter: grayscale(100%);
+}
+
+@mixin cursor-zoom-in() {
+	cursor: pointer; // fallback
+	cursor: -moz-zoom-in; 
+    cursor: -webkit-zoom-in; 
+    cursor: zoom-in;
+}
+
+@mixin reset-ul() {
+	&, > li {
+		position: relative;
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+}
+
+@mixin overlay($background-color: rgba(#000, 0.75)) {
+	display: block;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	background-color: $background-color;
+	margin: 0;
+	padding: 0;
+}

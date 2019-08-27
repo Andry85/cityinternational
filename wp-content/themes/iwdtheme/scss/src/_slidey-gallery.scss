@@ -1,0 +1,445 @@
+.iw-pretty-thumbs {
+
+	// Variables
+	// ================================================================
+	
+	// Viewport width breakpoint
+	$sm-upper: 500px; // Must be kept in sync with js config in slidey-gallery.js
+	$lg-upwards: $sm-upper + 1;
+
+	// Estimated height of scrollbar
+	$scrollbar-height: 20px;
+
+	// Item padding
+	$padding-item: 24px;
+
+	// Item height (height of <li> whose children are images)
+	$height-item: 480px; // inc. padding
+
+	// Height of outer (scrollbar-concealing) container
+	$height-outer: $height-item;
+
+	// Height of other containers (same as item height)
+	$height-middle: $height-item + $scrollbar-height;
+	$height-inner: $height-item;
+
+	// Prev/next btn dimensions
+	$nav-btn-width: 40px;
+	$nav-btn-height: 50px;
+
+	// Colors
+	$btn-bgd-color: #85BA3A;
+
+
+	// Styles
+	// ================================================================
+
+	display: block;
+	position: relative;
+	z-index: 0;
+	padding: 0;
+	margin: 0 auto;
+	clear: both;
+	text-align: left;
+
+	&, * {
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-webkit-tap-highlight-color: rgba(0,0,0,0);
+		@include no-select();
+	}
+
+	ul, li {
+		position: relative;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+
+	// All containers
+	// ----------------------------------------------------------------
+	.pg-outer,
+	.pg-middle,
+	.pg-inner {
+		display: block;
+		position: relative;
+		left: 0;
+		top: 0;
+		z-index: 0;
+		padding: 0;
+		margin: 0;
+	}
+
+
+	// Outer (scrollbar-concealing) container
+	// ----------------------------------------------------------------
+	.pg-outer {
+		width: 100%;
+		height: $height-outer;
+		overflow: hidden; // hide scrollbar of middle container
+	}
+
+
+	// Middle (scrolling) container (child of .pg-outer)
+	// ----------------------------------------------------------------
+
+	.pg-middle {
+		width: 100%;
+		height: $height-middle;
+		overflow-x: scroll; // we want a horiz scroll bar
+		overflow-y: hidden; // we do not want a vert scroll bar
+		-webkit-overflow-scrolling: touch; // iOS momentum scrolling
+	}
+
+
+	// Inner (content) container (child of .pg-middle)
+	// ----------------------------------------------------------------
+
+	.pg-inner {
+		width: auto;
+		height: $height-inner;
+		white-space: nowrap;
+	}
+
+
+	// Gallery items (children of .pg-inner)
+	// ----------------------------------------------------------------
+	.pg-item {
+		display: inline;
+		vertical-align: top;
+		position: relative;
+		left: 0;
+		top: 0;
+		z-index: 0;
+		margin: 0;
+		padding: $padding-item $padding-item $padding-item 0;
+		width: auto;
+		height: $height-item;
+		overflow: hidden;
+
+		img {
+			display: inline;
+			position: relative;
+			margin: 0;
+			padding: 0;
+			width: auto;
+			height: 100%;
+			min-width: 0;
+			max-width: none;
+
+			border: 5px #eee solid;
+			&.highlight {
+				border-color: #222;
+			}
+		}
+	}
+
+
+	// Item
+	// ----------------------------------------------------------------
+
+	.pg-item {
+		cursor: pointer;
+		@include transition-duration(.3s);
+		@include transition-property(opacity);
+		&:hover {
+			opacity: 0.85;
+		}
+	}
+
+	.pg-item:last-child {
+		padding-right: 0;
+	}
+
+
+	// Prev/next btns (children of .pg-outer)
+	// ----------------------------------------------------------------
+
+	.pg-prev,
+	.pg-next {
+		display: block;
+		position: absolute;
+		top: 50%;
+		z-index: 20;
+		margin: -($nav-btn-height / 2) 0 0 0;
+		width: $nav-btn-width;
+		height: $nav-btn-height;
+		background: $btn-bgd-color center no-repeat;
+		cursor: pointer;
+		opacity: 0.9;
+		@include transition-duration(.3s);
+		@include transition-property(background-color);
+		&:hover {
+			background-color: lighten($btn-bgd-color, 10%);
+		}
+	}
+
+	.pg-prev {
+		left: 0;
+		background-image: inline-image('left.svg');
+	}
+
+	.pg-next {
+		right: 0;
+		background-image: inline-image('right.svg');
+	}
+
+	// Mobile stacking mode
+	// ========================================================================
+	@media screen and (max-width: $sm-upper) {
+		display: block;
+
+		.pg-outer,
+		.pg-middle,
+		.pg-inner {
+			height: auto;
+			overflow: hidden;
+		}
+
+		.pg-inner {
+			white-space: normal;
+		}
+
+		.pg-item {
+			display: block;
+			width: auto;
+			height: auto;
+			padding: $padding-item;
+			text-align: center;
+			cursor: default;
+
+			@include transition(none);
+
+			&:hover {
+				opacity: 1;
+			}
+
+			> img {
+				margin: 0 auto;
+				border: none;
+				width: auto;
+				height: auto;
+				max-width: 100%;
+				min-height: 0;
+				max-height: none;
+			}
+		}
+
+		.pg-big,
+		.pg-prev,
+		.pg-next {
+			display: none!important;
+		}
+	}
+}
+
+
+// Big pic
+// ----------------------------------------------------------------
+
+.pg-big {
+
+	&, * {
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		@include no-select();
+	}
+
+	display: block;
+	position: fixed;
+	z-index: 99999;
+	width: 100%;
+	height: 100%;
+	left: 100%;
+	top: 0;
+	padding: 46px;
+	margin: 0;
+	overflow: hidden;
+	background: #FFF;
+	opacity: 0;
+
+	> div {
+		display: block;
+		position: relative;
+		left: 0;
+		top: 0;
+		z-index: 0;
+		width: 100%;
+		height: 100%;
+		background: center center no-repeat;
+	}
+
+	.pg-big-close {
+		display: block;
+		width: 40px;
+		height: 40px;
+		position: absolute;
+		left: auto;
+		right: 5px;
+		top: 5px;
+		z-index: 10;
+		//background: center no-repeat inline-image('gallery/close.svg');//FIXME
+		cursor: pointer;
+	}
+
+	.pg-big-prev,
+	.pg-big-next {
+		display: block;
+		position: absolute;
+		top: 0;
+		z-index: 5;
+		width: 45px;
+		height: 100%;
+		background: center no-repeat;
+		cursor: pointer;
+	}
+
+	.pg-big-prev {
+		left: 0;
+		//background-image: inline-image('gallery/prev.svg');//FIXME
+	}
+
+	.pg-big-next {
+		left: auto;
+		right: 0;
+		//background-image: inline-image('gallery/next.svg');//FIXME
+	}
+
+	&.revealed {
+		left: 0;
+		opacity: 1;
+		@include transition-duration(.5s);
+		@include transition-property(left);
+	}
+
+	&.quick-revealed {
+		left: 0;
+		opacity: 1;
+		@include transition-duration(.2s);
+		@include transition-property(opacity);
+	}
+
+	.pg-big-caption {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		top: auto;
+		right: 0;
+		width: 100%;
+		height: auto;
+		margin: 0 auto;
+		padding: 15px;
+		background-color: #fff;
+		color: #999;
+		text-align: center;
+		font-size: 16px;
+		line-height: 1.5em;
+
+		> div {
+			position: relative;
+			margin: 0 auto;
+			padding: 0;
+			width: 980px;
+			max-width: 100%;
+		}
+	}
+}
+
+#pretty-thumbs-main-img {
+	position: relative;
+	width: 100%;
+	max-width: 100%;
+	height: 500px;
+	padding: 0;
+	line-height: 0;
+	text-align: center;
+	overflow: hidden;
+	background-color: transparent;
+
+	&, * {
+		@include no-select();
+	}
+
+	> div {
+		position: absolute;
+		left: 0;
+		top: 0;
+		z-index: 0;
+		width: 100%;
+		height: 100%;
+		min-width: 0;
+		max-width: 0;
+		max-width: 100%;
+		max-height: 100%;
+		border: none;
+		cursor: pointer;
+		background: center center no-repeat;
+		background-color: inherit;
+		background-size: contain;
+
+		&.tmp-image {
+			position: absolute;
+			cursor: default;
+			top: 0;
+			left: 100%;
+			right: auto;
+			z-index: 5;
+		}
+	}
+
+	&.inactive {
+		> div {
+			cursor: default;
+		}
+	}
+}
+
+// Main image prev/next nav arrow buttons
+#pretty-thumbs-main-img [data-nav] {
+	$btn-bgd-color: #85BA3A;
+	$nav-btn-width: 40px;
+	$nav-btn-height: 50px;
+
+	display: block;
+	position: absolute;
+	top: 50%;
+	z-index: 20;
+	margin: -($nav-btn-height / 2) 0 0 0;
+	width: $nav-btn-width;
+	height: $nav-btn-height;
+	background: $btn-bgd-color center no-repeat;
+	cursor: pointer;
+	opacity: 0.9;
+
+	@include transition-duration(.3s);
+	@include transition-property(background-color);
+
+	&:hover {
+		background-color: lighten($btn-bgd-color, 10%);
+	}
+
+	&[data-nav="prev"] {
+		left: 0;
+		background-image: inline-image('gallery/arrow_left.svg');
+	}
+
+	&[data-nav="next"] {
+		right: 0;
+		background-image: inline-image('gallery/arrow_right.svg');
+	}
+}
+
+
+
+@media screen and (max-width: $sm-upper) {
+	// hack
+	#pretty-thumbs-main-img img {
+		cursor: default!important;
+	}
+
+	// Hide main image
+	#pretty-thumbs-main-img {
+		display: none;
+	}
+}

@@ -1,0 +1,25 @@
+
+// Use for a simple max-width block of content.
+// (By convention, this takes care of padding/margin and the inner child div
+// has no padding/margin.)
+.content-block {
+	position: relative;
+	margin: 0;
+	padding: $pad;
+	width: 100%;
+	clear: both;
+	overflow: hidden;
+
+	// Optionally, put one or more of these as immediate children
+	// of the .content-block, in order to get a sensible-width single
+	// column positioned centrally.
+	> .content-block-inner {
+		position: relative;
+		margin: 0 auto;
+		padding: 0;
+		width: $content-block-width;
+		max-width: 100%;
+		clear: both;
+		overflow: hidden;
+	}
+}

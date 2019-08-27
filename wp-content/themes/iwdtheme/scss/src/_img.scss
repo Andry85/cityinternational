@@ -1,0 +1,17 @@
+img {
+	position: relative;
+	border: none;
+	width: auto;
+	height: auto;
+	max-width: 100%;
+
+	&.alignleft {
+		float: left;
+		margin: 12px 24px 12px 0;
+	}
+
+	&.alignright{
+		float: right;
+		margin: 12px 0 12px 12px;
+	}
+}

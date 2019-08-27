@@ -1,0 +1,186 @@
+// See http://perfecticons.com/
+
+@font-face {
+    font-family: 'si';
+    src: url($fonts-dir + 'socicon.eot');
+    src: url($fonts-dir + 'socicon.eot?#iefix') format('embedded-opentype'),
+         url($fonts-dir + 'socicon.woff') format('woff'),
+         url($fonts-dir + 'socicon.ttf') format('truetype'),
+         url($fonts-dir + 'socicon.svg#icomoonregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    @font-face {
+        font-family:si;
+        src: url($fonts-dir + '/socicon.svg') format(svg);
+    }
+}
+
+.social-icon-links {
+	text-transform: none;
+	letter-spacing: normal;
+	line-height: normal;
+	
+	.soc {
+	    overflow:hidden;
+	    margin:0; padding:0;
+	    list-style:none;
+	}
+
+	.soc li {
+	    display:inline-block;
+	    *display:inline;
+	    zoom:1;
+
+	    padding: 0;
+	    margin: 0 15px;
+
+	    &, &:last-child {
+	    	padding: 0;
+	    	margin: 0;
+	    }
+
+	    br {
+	    	display: none;
+	    }
+	}
+
+	.soc li a {
+	    font-family:si!important;
+	    font-style:normal;
+	    font-weight:400;
+	    -webkit-font-smoothing:antialiased;
+	    -moz-osx-font-smoothing:grayscale;
+	    -webkit-box-sizing:border-box;
+	    -moz-box-sizing:border-box;
+	    -ms-box-sizing:border-box;
+	    -o-box-sizing:border-box;
+	    box-sizing:border-box;
+	    -o-transition:.1s;
+	    -ms-transition:.1s;
+	    -moz-transition:.1s;
+	    -webkit-transition:.1s;
+	    transition:.1s;
+	    -webkit-transition-property: transform;
+	    transition-property: transform;
+	    -webkit-transform: translateZ(0);
+	    transform: translateZ(0);
+	    overflow:hidden;
+	    text-decoration:none;
+	    text-align:center;
+	    display:block;
+	    position: relative;
+	    z-index: 1;
+	    width: 45px;
+	    height: 45px;
+	    line-height: 45px;
+	    font-size: 24px;
+	    -webkit-border-radius: 2px;
+	    -moz-border-radius: 2px;
+	    border-radius: 2px;
+	    color: #ffffff;
+	    background-color: none;
+
+	    @include transition(background-color $quick);
+	}
+
+	.soc-twitter {
+	    background-color: #4da7de;
+	}
+	.soc-twitter:before {
+	    content:'a';
+	}
+	.soc-facebook {
+	    background-color: #3e5b98;
+	}
+	.soc-facebook:before {
+	    content:'b';
+	}
+	.soc-google {
+	    background-color: #d93e2d;
+	}
+	.soc-google:before {
+	    content:'c';
+	}
+	.soc-pinterest {
+	    background-color: #c92619;
+	}
+	.soc-pinterest:before {
+	    content:'d';
+	}
+	.soc-linkedin {
+	    background-color: #3371b7;
+	}
+	.soc-linkedin:before {
+	    content:'j';
+	}
+	.soc-rss {
+	    background-color: #f26109;
+	}
+	.soc-rss:before {
+	    content:',';
+	}
+	.soc-youtube {
+	    background-color: #e02a20;
+	}
+	.soc-youtube:before {
+	    content:'r';
+	}
+	.soc-vimeo {
+	    background-color: #51b5e7;
+	}
+	.soc-vimeo:before {
+	    content:'s';
+	}
+	.soc-email1 {
+	    background-color: #578AD6;
+	}
+	.soc-email1:before {
+	    content:'<';
+	}
+	.soc-email2 {
+	    background-color: #578AD6;
+	}
+	.soc-email2:before {
+	    content:'.';
+	}
+	.soc-twitter:hover {
+	    background-color: #3993ca;
+	}
+	.soc-facebook:hover {
+	    background-color: #2a4784;
+	}
+	.soc-google:hover {
+	    background-color: #c52a19;
+	}
+	.soc-pinterest:hover {
+	    background-color: #b51205;
+	}
+	.soc-linkedin:hover {
+	    background-color: #1f5da3;
+	}
+	.soc-rss:hover {
+	    background-color: #de4d00;
+	}
+	.soc-youtube:hover {
+	    background-color: #cc160c;
+	}
+	.soc-vimeo:hover {
+	    background-color: #3da1d3;
+	}
+	.soc-email1:hover {
+	    background-color: #4376c2;
+	}
+	.soc-email2:hover {
+	    background-color: #4376c2;
+	}
+	.soc-instagram {
+	    background-color: #405de6;
+	}
+	.soc-instagram:before {
+	    content:'x';
+	}
+}

@@ -1,0 +1,13 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+body {
+	font-family: $font-body;
+	font-size: 15px;
+	color: $black;
+	min-width: 320px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}

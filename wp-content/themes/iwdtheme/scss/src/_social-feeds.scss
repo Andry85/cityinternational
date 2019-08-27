@@ -1,0 +1,18 @@
+.content-block.social-feeds {
+
+	@media screen and (min-width: $md-lower) {
+		> .content-block-inner {
+			@include display-flex(flex);
+			@include align-items(stretch);
+			@include justify-content(space-between);
+
+			padding: 0;
+
+			> div {
+				position: relative;
+				padding: $pad;
+				width: 50%;
+			}
+		}
+	}
+}

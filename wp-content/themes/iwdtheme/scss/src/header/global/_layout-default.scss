@@ -1,0 +1,10 @@
+.illicit-nav {
+	position: relative;
+	z-index: 100;
+
+	&, ul {
+		position: relative;
+		display: block;
+		overflow: visible;
+	}
+}

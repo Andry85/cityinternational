@@ -1,0 +1,46 @@
+@media screen and (min-width: $lg-lower) {
+
+	.illicit-nav {
+
+		// Top-level menu
+		ul.menu {
+
+			// Top-level menu items
+			> li {
+				position: relative;
+				display: inline-block;
+				vertical-align: top;
+			}
+		}
+
+		// Sub-menus
+		ul.sub-menu {
+
+			position: absolute;
+			left: 0;
+			top: 100%;
+
+			@include scaleY(0);
+			@include opacity(0);
+			@include transform-origin(0, 0);
+			@include transition-duration(.35s);
+			@include transition-property(transform, opacity);
+
+			&.open { // Class added in JS
+				@include scaleY(1);
+				@include opacity(1);
+			}
+
+			// Sub-menu items
+			> li {
+				position: relative;
+				display: block;
+			}
+
+			ul.sub-menu {
+				left: 100%;
+				top: 0;
+			}
+		}
+	}
+} 

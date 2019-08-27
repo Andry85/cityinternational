@@ -1,0 +1,41 @@
+.content-block-shortcode {
+	$narrow-col-width: 200px;
+
+	position: relative;
+	max-width: 100%;
+
+	@media screen and (min-width: $lg-lower) {
+		&.layout-ww,
+		&.layout-nw,
+		&.layout-wn {
+			@include display-flex(flex);
+			@include align-items(stretch);
+			@include justify-content(space-between);
+
+			> * {
+				display: block;
+				position: relative;
+			}
+		}
+
+		&.layout-ww > * {
+			width: 50%;
+		}
+
+		&.layout-nw > * {
+			width: calc(100% - #{$narrow-col-width});
+
+			&:first-child {
+				width: $narrow-col-width;
+			}
+		}
+
+		&.layout-wn > * {
+			width: $narrow-col-width;
+
+			&:first-child {
+				width: calc(100% - #{$narrow-col-width});
+			}
+		}
+	}
+}

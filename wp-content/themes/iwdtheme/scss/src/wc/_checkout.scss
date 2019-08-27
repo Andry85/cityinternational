@@ -1,0 +1,21 @@
+body.woocommerce-page.page-checkout {
+	text-align: left;
+	
+	#customer_details {
+		h1, h2, h3, h4, h5, h6,
+		label {
+			text-align: left;
+		}
+	}
+	
+	#place_order {
+		font-weight: bold;
+		font-size: 22px;
+	}
+}
+
+.wc_payment_method.payment_method_stripe {
+	img {
+		width: 32px;
+	}
+}

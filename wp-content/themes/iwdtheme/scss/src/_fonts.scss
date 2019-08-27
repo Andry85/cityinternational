@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Cinzel:400,700');
+
+@font-face {
+    font-family:'TeXGyreAdventor';
+    src: url($fonts-dir + 'TeXGyreAdventor-Bold.eot');
+	src: url($fonts-dir + 'TeXGyreAdventor-Bold.eot?#iefix') format('embedded-opentype'),
+		url($fonts-dir + 'TeXGyreAdventor-Bold.woff2') format('woff2'),
+		url($fonts-dir + 'TeXGyreAdventor-Bold.woff') format('woff'),
+		url($fonts-dir + 'TeXGyreAdventor-Bold.ttf') format('truetype'),
+		url($fonts-dir + 'TeXGyreAdventor-Bold.otf') format('opentype'),
+		url($fonts-dir + 'TeXGyreAdventor-Bold.svg#TeXGyreAdventor-Bold') format('svg');
+    font-weight: 700;
+    font-style: normal;
+    font-stretch: normal;
+    unicode-range: U+0-10FFFF;
+}

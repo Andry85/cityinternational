@@ -1,0 +1,43 @@
+input[type="button"],
+input[type="submit"],
+button,
+.button,
+a.button,
+.woocommerce a.button,
+a.button.wc-forward,
+.woocommerce a.button.wc-forward,
+span.button {
+	@include btn();
+
+	font-family: $font-special;
+	text-transform: uppercase;
+	font-size: 13px;
+	font-weight: 700;
+	padding: 20px 40px;
+
+	&.outline {
+		background: transparent;
+
+		&:hover {
+			background-color: $white;
+			color: $blue;
+		}
+	}
+
+	&.outline-dark {
+		background: transparent;
+		border: 2px solid $grey;
+		color: $grey;
+
+		&:hover {
+			background-color: $grey;
+			color: $white;
+		}
+	}
+}
+
+.button-block-wrap {
+	display: block;
+	position: relative;
+	margin: 20px auto;
+}

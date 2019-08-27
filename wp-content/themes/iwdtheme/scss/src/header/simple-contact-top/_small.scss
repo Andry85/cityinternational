@@ -1,0 +1,17 @@
+// Header for small screens
+// ==============================================================
+
+@media screen and (max-width: $md-upper) {
+
+	// Layout
+	// ==============================================================
+
+	#header {
+		height: $header-sm-height + $header-top-height;
+	}
+
+	#header-main {
+		height: $header-sm-height;
+	}
+
+}

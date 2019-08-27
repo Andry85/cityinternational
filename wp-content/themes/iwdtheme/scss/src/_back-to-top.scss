@@ -1,0 +1,27 @@
+.back-to-top-btn {
+	display: block;
+	position: fixed;
+	bottom: 5px;
+	right: 5px;
+	z-index: 10000;
+	background: #555 no-repeat center url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAATCAYAAADxlA/3AAAAuElEQVRIicWVUQ3EIAxA52ASkDApk4AkJEwCUiYFCe9+ICFsQOHoXRP+mr5HWsq2TQawA3c8+2ydb+EpficBmAKeSxht+AGEF3iKABz/gutJAKcQnkucq+B2AFyG1YZbSc4s3EkLCyTcKPxqFAtvt4oSrTm5VsGrE07/pdQleG63IfiAxHNrroJPSVBfrVPwQQmziZImQ3K51nNb8sPRbq9LSV4D3pHwtQSVv73LiP3yGvBCwudz9QETt+kOSnINQgAAAABJRU5ErkJggg==');
+	background-size: contain;
+	box-shadow: 2px 2px 3px rgba(9, 9, 9, 0.2);
+	opacity: 0;
+	border-radius: 4px;
+	overflow: hidden;
+	width: 0;
+	height: 0;
+	padding: 14px;
+	margin: 5px;
+	border: 4px solid #555;
+	cursor: pointer;
+	
+	@include transition(opacity 0.4s);
+	
+	&.revealed {
+		opacity: 0.9;
+		width: 28px;
+		height: 28px;
+	}
+}

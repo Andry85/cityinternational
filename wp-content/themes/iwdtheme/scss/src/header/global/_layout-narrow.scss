@@ -1,0 +1,36 @@
+@media screen and (max-width: $md-upper) {
+
+	.illicit-nav {
+
+		// All menus
+		ul.menu,
+		ul.sub-menu {
+
+			position: relative;
+			overflow: hidden;
+			max-height: 0;
+			@include opacity(0);
+			@include transition-duration(.4s);
+
+			&.open { // Class added in JS
+				overflow: visible;
+				max-height: 900px;
+				@include opacity(1);
+			}
+
+			// All menu items
+			li {
+				position: relative;
+				display: block;
+				a {
+					display: block;
+				}
+			}
+		}
+
+		// To take account of center-submenu JS fix:
+		ul.sub-menu {
+			left: auto !important;
+		}
+	}
+}

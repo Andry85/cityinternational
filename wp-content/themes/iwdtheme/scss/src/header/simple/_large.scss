@@ -1,0 +1,228 @@
+// Header for large screens
+// ==============================================================
+
+@media screen and (min-width: $lg-lower) {
+
+	$top-level-link-pad-y: calc(#{$header-lg-height-default / 2} - 0.5em);
+	$top-level-link-pad-y-shrunk: calc(#{$header-lg-height-shrunk / 2} - 0.5em);;
+
+	$anim-duration: $quick;
+
+	body.no-top-banner {
+		padding-top: $header-lg-height-default;
+	}
+
+	#header {
+		position: fixed;
+		line-height: 1em;
+		height: $header-lg-height-default;
+		
+		font-size: $header-lg-font-size;
+		background-color: $header-lg-bgd;
+
+		@include transition-duration($anim-duration);
+		@include transition-property(height, padding, background-color);
+
+		// Link default
+		a {
+			@include link-style($header-lg-link-color, $header-lg-link-color-hover);
+		}
+
+		// Top level links
+		ul.menu > li > a {
+			display: inline-block;
+			vertical-align: middle;
+			padding: $top-level-link-pad-y $header-lg-top-level-link-pad-x;
+			
+			@include transition-duration($anim-duration);
+			@include transition-property(padding, color);
+		}
+		
+		// Submenus
+		ul.sub-menu {
+			border-top-style: solid;
+			border-bottom-style: solid;
+			border-top-width: $header-lg-sub-level-link-pad-y;
+			border-bottom-width: $header-lg-sub-level-link-pad-y;
+			border-color: $header-lg-bgd-submenu;
+			background-color: $header-lg-bgd-submenu;
+		}
+
+		// Nested submenus
+		ul.sub-menu > li > ul.sub-menu {
+			position: absolute;
+			z-index: 50;
+			width: auto;
+			left: 100%;
+			right: auto;
+			margin: 0;
+		}
+
+		// Submenu links
+		ul.sub-menu > li > a {
+			display: block;
+			padding: $header-lg-sub-level-link-pad-y $header-lg-sub-level-link-pad-x;
+			white-space: nowrap;
+		}
+	}
+
+	#header-col-a,
+	#header-col-b,
+	#header-col-c {
+		display: block;
+		position: absolute;
+		top: 0;
+		z-index: 0;
+		width: auto;
+		height: 100%;
+		max-width: 100%;
+		margin: 0;
+
+		@include transition-duration($anim-duration);
+		@include transition-property(padding);
+	}
+
+	#header-col-a {
+		padding: $header-lg-logo-padding-default;
+		left: $header-lg-top-level-link-pad-x;
+	}
+
+	#header-col-b {
+		padding: 0;
+		right: $header-lg-top-level-link-pad-x;
+	}
+
+	#header.header-3-col {
+		$side-padding: 30px;
+
+		#header-col-a,
+		#header-col-b,
+		#header-col-c {
+			padding: 0;
+		}
+
+		#header-col-a,
+		#header-col-c {
+			width: $header-lg-side-col-width;
+			z-index: 10;
+
+			@include display-flex(flex);
+			@include align-items(center);
+		}
+
+		#header-col-a {
+			left: 0;
+			right: auto;
+			padding-left: $side-padding;
+
+			@include justify-content(flex-start);
+		}
+
+		#header-col-b {
+			width: 100%;
+			left: 0;
+			right: 0;
+			z-index: 0;
+			text-align: center;
+
+			ul.sub-menu {
+				text-align: left;
+			}
+		}
+
+		#header-col-c {
+			left: auto;
+			right: 0;
+			text-align: right;
+			padding-right: $side-padding;
+
+			@include justify-content(flex-end);
+		}
+	}
+
+	#header-logo {
+		width: $header-lg-logo-width-default;
+		
+		@include transition-duration($quick);
+		@include transition-property(width, height, padding, margin);
+	}
+
+	// User has scrolled some way down the page, so we shorten the header:
+	body.scrolled #header {
+		height: $header-lg-height-shrunk;
+		background-color: $header-lg-bgd-scrolled;
+		box-shadow: 0 1px 1px rgba(17,17,17,0.08);
+
+		ul.menu > li > a {
+			@include link-style($black, $blue);
+			padding-top: $top-level-link-pad-y-shrunk;
+			padding-bottom: $top-level-link-pad-y-shrunk;
+		}
+
+		#header-logo {
+			width: $header-lg-logo-width-shrunk;
+			padding: 6px;
+			background-image: inline-image('logo_colour.svg');
+		}
+	}
+
+	// Mega menu
+	#header .illicit-nav ul.menu > li.mega-menu > ul.sub-menu {
+		$column-width: $mega-menu-column-width;
+
+		@include display-flex(flex);
+		@include align-items(stretch);
+		@include justify-content(space-between);
+
+		width: auto;
+		padding: 30px;
+		margin: 0;
+		text-align: left;
+
+		li {
+			display: block;
+			position: relative;
+			padding: 0;
+			margin: 0 auto;
+			overflow: hidden;
+
+			> a {
+				display: block;
+				padding: 5px 0;
+				white-space: normal;
+			}
+		}
+
+		ul.sub-menu {
+			@include scaleY(1);
+			@include opacity(1);
+			@include transition(none);
+
+			padding: 0;
+			margin: 0 auto;
+			border: none;
+
+			// No further nesting for now, just for simplicity 
+			// (@todo allow more nesting)...
+			ul.sub-menu {
+				display: none !important;
+			}
+		}
+
+		> li {
+			width: $column-width;
+		}
+
+		> li > ul.sub-menu {
+			display: block;
+			position: relative;
+			top: 0;
+			left: 0;
+
+			> li {
+				display: block;
+				position: relative;
+			}
+		}
+	}
+}

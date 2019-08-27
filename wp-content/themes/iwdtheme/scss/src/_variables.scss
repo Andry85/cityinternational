@@ -1,0 +1,110 @@
+// Global
+// ==========================================================================
+
+// URL
+// --------------------------------------------------------------------------
+$fonts-dir: '/wp-content/themes/iwdtheme/fonts/';
+$images-dir: '/wp-content/themes/iwdtheme/images/';
+$scss-images-dir: '/wp-content/themes/iwdtheme/scss/src/images/';
+
+// Colors
+// --------------------------------------------------------------------------
+$white: #FFF;
+$black: #2A2A2A;
+$blue: #224C6F;
+$grey: #5F5F5F;
+$lt-grey: #C1C1C1;
+
+// Typography
+// --------------------------------------------------------------------------
+$font-body: 'TeXGyreAdventor',Arial,sans-serif;
+$font-headings: 'TeXGyreAdventor',Arial,sans-serif;
+$font-special: 'Cinzel',Arial,sans-serif;
+
+$line-height-default: 1.7em;
+$line-height-big: 1.7em;
+$letter-spacing-big: 0.15em;
+
+// Anim
+// --------------------------------------------------------------------------
+$quick: .3s;
+$slow: .8s;
+
+// Layout
+// --------------------------------------------------------------------------
+
+$content-block-width: 1260px;
+$content-block-width-narrow: 960px;
+$content-block-width-wide: 1700px;
+
+$lg-lower: 1000px;
+$md-upper: $lg-lower - 1;
+$md-lower: 500px;
+$sm-upper: $md-lower - 1;
+
+$pad: 15px;
+$double-pad: $pad * 2;
+$mega-pad: $pad * 4;
+
+// Header / top navigation
+// ==========================================================================
+
+$header-logo-inline-image: 'logo_white.svg';
+
+// Layout: Large screens
+// --------------------------------------------------------------------------
+$header-lg-height-default: 120px;
+$header-lg-height-shrunk: 80px;
+
+$header-lg-top-level-link-pad-x: 25px;
+$header-lg-sub-level-link-pad-x: 9px;
+$header-lg-sub-level-link-pad-y: 8px;
+
+$header-lg-logo-width-default: 320px; // Try setting to 100% for 3-col layout
+$header-lg-logo-width-shrunk: 250px; // Try setting to 100% for 3-col layout
+$header-lg-logo-padding-default: 0;
+$header-lg-logo-padding-shrunk: 0;
+
+$header-lg-side-col-width: 180px; // Applies to 3-col header layout only
+
+$mega-menu-column-width: 180px;
+
+// Layout: Small screens
+// --------------------------------------------------------------------------
+$header-sm-height: 76px;
+$header-sm-logo-width: 100%;
+$header-sm-logo-height: 100%;
+
+$header-sm-link-pad-x: 10px;
+$header-sm-link-pad-y: 8px;
+
+$header-sm-logo-padding: 0;
+
+// Layout: SimpleHeaderContactTop
+// --------------------------------------------------------------------------
+$header-top-padding: 2px 15px;
+$header-top-height: 30px;
+
+// Colors/fonts
+// --------------------------------------------------------------------------
+$header-color: $white;
+
+$header-lg-bgd: transparent;
+$header-lg-bgd-scrolled: $white;
+$header-lg-bgd-submenu: $white;
+$header-lg-bgd-no-banner: $white;
+
+$header-lg-link-color: $white;
+$header-lg-link-color-hover: $lt-grey;
+$header-lg-font-size: 14px;
+
+$header-sm-bgd: $white;
+$header-sm-link-color: $black;
+$header-sm-link-color-hover: $black;
+$header-sm-font-size: 14px;
+
+// Hamburger menu
+// --------------------------------------------------------------------------
+$hamburger-stripe-color: $black;
+$hamburger-width: 50px;
+$hamburger-border-radius: 0;

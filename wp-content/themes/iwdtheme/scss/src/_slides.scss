@@ -1,0 +1,145 @@
+.content-block.slides {
+	width: 100%;
+	max-width: 100%;
+	padding: 0;
+	margin: 0 auto;
+
+	> .content-block-inner {
+		padding: 0;
+		margin: 0 auto;
+		width: 100%;
+		max-width: 100%;
+	}
+
+	[data-slide-nav] {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 50px;
+		height: 100%;
+		padding: 10px;
+		background: rgba($white, 0.2) center no-repeat;
+		cursor: default;
+		opacity: 0.1;
+
+		&:hover {
+			background-color: rgba($white, 0.7);
+		}
+
+		&.active {
+			cursor: pointer;
+			opacity: 0.9;
+		}
+
+		@include transition-duration($quick);
+		@include transition-property(background-color, opacity);
+	}
+
+	[data-slide-nav="prev"] {
+		left: 0;
+		background-image: inline-image("left.svg");
+	}
+
+	[data-slide-nav="next"] {
+		right: 0;
+		background-image: inline-image("right.svg");
+	}
+}
+
+.slides-wrap {
+	&, div {
+		position: relative;
+		padding: 0;
+		margin: 0;
+	}
+
+	overflow: hidden;
+	width: 100%;
+	max-width: 100%;
+	background-color: #050505;
+
+	> div {
+		@include display-flex(flex);
+		@include align-items(stretch);
+		@include justify-content(flex-start);
+		@include transition(transform 1s);
+		@include transform(translate3d(0, 0, 0));
+	}
+
+	.slide {
+		position: relative;
+		top: 0;
+		left: 0;
+		width: 100%;
+		max-width: 100vw;
+		height: auto;
+		padding: $mega-pad 80px;
+		margin: 0;
+		text-align: center;
+		color: $white;
+		background: center no-repeat;
+		background-size: cover;
+
+		@include display-flex(flex);
+		@include align-items(center);
+
+		a {
+			@include link-style($white, $white, 1);
+			text-decoration: underline;
+		}
+
+		h2 {
+			color: $white;
+			font-size: 28px;
+		}
+	}
+
+	.slide-content {
+		position: relative;
+		left: 0;
+		right: 0;
+		z-index: 10;
+		width: 100%;
+		font-size: 18px;
+		line-height: $line-height-default;
+
+		> div {
+			position: relative;
+			margin: 0 auto;
+			width: $content-block-width-narrow;
+			max-width: 100%;
+		}
+	}
+
+	.slide-overlay {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		z-index: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(#000, 0.7);
+	}
+}
+
+@media screen and (max-width: $sm-upper) {
+	.content-block.slides {
+		[data-slide-nav] {
+			width: 32px;
+			background-size: contain;
+			background-origin: content-box;
+		}
+	}
+
+	.slides-wrap {
+		.slide {
+			padding: 30px 42px;
+		}
+
+		.slide-content {
+			font-size: 14px;
+		}
+	}	
+}

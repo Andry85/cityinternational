@@ -1,0 +1,89 @@
+// Header for small screens
+// ==============================================================
+
+@media screen and (max-width: $md-upper) {
+	#header {
+		position: relative;
+		height: $header-sm-height;
+
+		background-color: $header-sm-bgd;
+		font-size: $header-sm-font-size;
+
+		ul.menu {
+			border-bottom-style: solid;
+			border-bottom-width: $header-sm-link-pad-y;
+			border-bottom-color: $header-sm-bgd;
+		}
+
+		ul.menu,
+		ul.sub-menu {
+			> li > a {
+				padding: $header-sm-link-pad-y $header-sm-link-pad-x;
+			}
+		}
+
+		a {
+			@include link-style($header-sm-link-color, $header-sm-link-color-hover);
+		}
+	}
+
+	#header-inner {
+		z-index: 0;
+	}
+
+	#header-col-a,
+	#header-col-b {
+		display: block;
+		position: absolute;
+		top: 0;
+		bottom: auto;
+		width: 50%;
+		height: $header-sm-height;
+	}
+
+	#header-col-a {
+		left: 0;
+		right: auto;
+	}
+
+	#header-col-b {
+		left: auto;
+		right: 0;
+	}
+
+	#header-menu {
+		display: block;
+		position: relative;
+		text-align: right;
+		height: 100%;
+
+		> .menu-main-menu-container {
+			position: relative;
+			top: 100%;
+			left: 0;
+		}
+
+		ul, li, li > a {
+			background-color: $header-sm-bgd;
+		}
+	}
+
+	// @todo A more general solution to the problem of how to display col C
+	// on small viewports would be nice.
+	#header-col-c {
+		display: none;
+	}
+
+	#header-logo {
+		position: absolute;
+		left: 8px;
+		right: auto;
+		top: 0;
+		bottom: auto;
+		z-index: 120;
+		padding: 10px;
+		width: $header-sm-logo-width;
+		height: $header-sm-logo-height;
+		background-image: inline-image('logo_colour.svg');
+	}
+}

@@ -1,0 +1,12 @@
+// This SCSS should be loaded for <= IE8 only
+
+// Basic imports
+@import "compass/css3";
+@import "variables";
+@import "mixins";
+
+.wpcf7-form {
+	.placeholder-substitute {
+		display: block;
+	}
+}

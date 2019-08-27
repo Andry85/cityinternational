@@ -1,0 +1,79 @@
+#header-search-popout {
+
+	position: absolute;
+	left: auto;
+	right: 0;
+	top: 100%;
+	bottom: auto;
+
+	opacity: 0;
+	@include transform-origin(0, 0);
+	@include transform(scaleY(0));
+	@include transition-property(transform, opacity);
+	@include transition-duration($quick);
+
+	&.revealed {
+		opacity: 1;
+		@include transform(scaleY(1));
+	}
+	
+	padding: 10px;
+	margin: 0;
+	clear: both;
+	float: none;
+	overflow: hidden;
+	line-height: normal;
+
+	max-width: 100%;
+	width: 320px;
+
+	font-size: 14px;
+	text-align: left;
+
+	background-color: $white;
+	background-color: rgba($white, 0.8);
+	color: $black;
+
+	input, button {
+		display: inline-block;
+		vertical-align: middle;
+		position: relative;
+		float: none!important;
+		margin: 0 4px!important;
+		padding: 4px 20px!important;
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		height: 32px;
+	}
+
+	input[type="search"] {
+		background-color: $lt-grey;
+		color: $black;
+		padding: 9px;
+		border: none;
+		width: 180px;
+	}
+
+	input[type="submit"] {
+		@include btn();
+		font-size: 14px;
+	}
+
+	.close-btn {
+		display: inline-block;
+		position: absolute;
+		right: 0;
+		top: 0;
+		font-family: Arial,sans-serif;
+		font-size: 13px;
+		padding: 3px 6px;
+		color: $black;
+		cursor: pointer;
+	}
+
+	@media screen and (max-width: 500px) {
+		width: 100%;
+		text-align: center;
+		padding: 30px 10px;
+	}
+}

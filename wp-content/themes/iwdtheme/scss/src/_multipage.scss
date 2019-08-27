@@ -1,0 +1,30 @@
+[data-multipage] {
+	position: relative;
+}
+
+[data-multipage-for] {
+	position: relative;
+
+	&.selected {
+		font-weight: bold;
+	}
+}
+
+[data-multipage-id] {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	overflow: hidden;
+	opacity: 0;
+	z-index: 0;
+
+	&.show {
+		position: relative;
+		opacity: 1;
+		z-index: 1;
+	}
+
+	@include transition-duration($quick);
+	@include transition-property(opacity, max-height);
+}

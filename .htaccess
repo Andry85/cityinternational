@@ -1,0 +1,12 @@
+#AuthType Basic
+#AuthName "Illicit Web Design Protected"
+#AuthUserFile /var/www/html/.htpasswd
+#Require valid-user
+
+#RewriteEngine On
+#RewriteCond %{HTTP_USER_AGENT} (googlebot|bingbot|Baiduspider) [NC]
+#RewriteRule .* - [R=403,L]
+
+# BEGIN WordPress
+
+# END WordPress
