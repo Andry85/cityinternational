@@ -19,7 +19,7 @@
 define('DB_NAME', 'cityinternational');
 
 /** MySQL database username */
-define('DB_USER', 'cityinternational');
+define('DB_USER', 'cityinternationa');
 
 
 //localhost
